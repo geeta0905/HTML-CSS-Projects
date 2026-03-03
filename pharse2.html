@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Basic of html  </title>
+</head>
+<body>
+    <main>
+        <section>
+            <div>
+                Student table 
+    <table border="2">
+        <thead>
+            <tr>
+                <th> Roll No </th>
+                <th> Name </th>
+                <th> Subject </th>
+                <th> Marks </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> 01 </td>
+                <td> Geeta </td>
+                <td> Machine Learning </td>
+                <td> 78</td>
+            </tr>
+            <tr> 
+                <td> 02 </td>
+                <td> Mayuri </td>
+                <td> Artificial Intelligence </td>
+                <td> 88 </td>
+            </tr>
+            <tr> 
+                <td> 03 </td>
+                <td> Matiri </td>
+                <td> Database</td>
+                <td> 90</td>
+            </tr>
+        </tbody>
+        <tfoot> 
+            <tr> 
+                <td colspan="3"> <strong> Total Students </strong></td>
+                <td> 03 </td>
+            </tr>
+        </tfoot>
+    </table>
+    <hr>
+            </div>
+        </section>
+<section> 
+    <div>
+    <form action="#" method="post">
+       <label> Name </label>
+            <input type="text" id="name" name="name" required> <br><br>
+
+        <label> Age </label>
+        <input type="number" id="Age" name="Age" min="20" max="55" required> <br> <br> 
+
+       <label> Email </label>
+       <input type="email" id="email" name="email" placeholder="avc.@gmail.com" required> <br><br> 
+
+       <label> Password </label>
+        <input type="password" id="Password" name="Password" required title="at least 6 characters "><br><br>
+
+        <label> Gender </label>
+        <input type="radio" id="Male" name="Gender" value="Male" ><label>Male </label>
+        <input type="radio" id="Female" name="Gender" value="Female" ><label>Female </label><br> <br>
+
+        <label> Skills </label>
+        <input type="checkbox" id="HTML" name="Skills" value="HTML"> <label>HTML</label>
+        <input type="checkbox" id="CSS" name="Skills" value="CSS"> <label>CSS</label>
+        <input type="checkbox" id="JavaScript" name="Skills" value="JavaScript"> <label>JavaScript</label>
+        <input type="checkbox" id="Python" name="Skills" value="Python"> <label>Python</label> <br> <br> 
+
+        <label> City </label>
+        <select id="City" name="City">
+            <option value=""> Select </option>
+            <option value="Kolhapur"> Kolhapur </option>
+            <option value="Satara"> Satara </option>
+            <option value="Mumbai"> Mumbai </option>
+            <option value="Pune"> Pune </option>
+        </select> <br><br>
+
+        <label> Address </label>
+        <textarea id="Address" name="Address" rows="4" cols="30"></textarea> <br> <br> 
+
+        <button type="submit"> Submit </button>
+        <button type="reset"> Reset </button>
+    </form>
+    <hr>
+    <div style="border: 2px solid black; padding: 10px;"> This is a <span style="color: blueviolet;"> Geeta Patel </span></div> 
+    <hr>
+
+    <audio controls>
+    <source src="audio.mp3" type="audio/mpeg"> 
+    Your browser does not support the audio tag.
+    </audio> <br><br>
+
+    <video width="250" height="250" controls>
+    <source src="video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+    </video> <br> <br>
+<hr> 
+</div>
+</section>
+<section>
+    <div> 
+<iframe
+width="300" height="250" style="border:0;"
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.927495645205!2d74.47626321489194!3d16.685345888553623!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc102f8ff22c5f7%3A0xabcdef123456!2sIchalkaranji!5e0!3m2!1sen!2sin!4v1625600000000" allowfullscreen="" loading="lazy"></iframe>
+<br><br>
+<iframe 
+width="300" height="250"
+src="https://www.youtube.com/embed/AETFvQonfV8" allowfullscreen></iframe>
+</div>
+</section>
+ </main>
+</body>
+</html>
