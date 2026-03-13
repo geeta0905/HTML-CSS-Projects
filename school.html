@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student portal</title>
+        <style>
+            body{
+                font-family:Times New Roman ;
+                background: #f2f2f2;
+            }
+            h1{
+                text-align: center;
+                color:#2c7be5;
+            }
+            section{
+                background: white;
+                width: 400px;
+                margin: auto;
+                padding:20px;
+                border-radius: 5px;
+            }
+            button{
+                background: green;
+                color:white;
+                padding: 10px;
+                border:none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> Student Login </h1>
+        <section id="loginBox">
+            <h3> Login </h3>
+            <label> Username </label> <br>
+            <input type="text" id="username" required> <br> <br>
+            <label> Password </label> <br>
+            <input type="password" id="password" required> <br> <br>
+            <button onclick="login()"> Login </button>
+            <p id="loginMsg"></p>
+        </section>
+
+        <section id="marksBox" style="display: none;">
+            <h3> Student Marks </h3>
+            <label>Student Name </label> <br>
+            <input type="text" id="name" required> <br> <br>
+            <label> Marks test 1 </label> <br>
+            <input type="number" id="num1"> <br> <br>
+            <label> Marks test 2 </label> <br>
+            <input type="number" id="num2"> <br> <br>
+            <button onclick ="showDetails()"> Submit </button>
+            <p id="demo"></p>
+        </section>
+
+        <script>
+            function login(){
+                try {
+                    let user=document.getElementById("username").value;
+                let pass=document.getElementById("password").value;
+
+                let correctUser="student";
+                let correctPass="2345";
+
+                if(user==correctUser && pass==correctPass){
+                    document.getElementById("loginBox").style.display="none";
+                    document.getElementById("marksBox").style.display="block";
+                }else{
+                    alert("username & pass Not entered")
+                } 
+               
+                } catch (error) {
+                    console.log("somthing error happen ")
+                }
+            }
+
+            function showDetails(){
+                let name=document.getElementById("name").value;
+                let num1=Number(document.getElementById("num1").value);
+                let num2=Number(document.getElementById("num2").value);
+
+                let total=num1+num2;
+                let percentage=total/2;
+                let result;
+                
+                if(percentage>=35){
+                    result="Pass";
+                }
+                else{
+                    result="Fail";
+                }
+                document.getElementById("demo").innerHTML= "Hello" + name +  "<br><br>" + " Student Name:" + name +"<br><br>"+"Total Marks:" + total + "<br> <br>" + "Percentage:" + percentage +"<br> <br>" + "Result:" + result ;
+            }
+        </script>
+    </body>
+</html>
+
