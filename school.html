@@ -1,95 +1,134 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Student portal</title>
-        <style>
-            body{
-                font-family:Times New Roman ;
-                background: #f2f2f2;
-            }
-            h1{
-                text-align: center;
-                color:#2c7be5;
-            }
-            section{
-                background: white;
-                width: 400px;
-                margin: auto;
-                padding:20px;
-                border-radius: 5px;
-            }
-            button{
-                background: green;
-                color:white;
-                padding: 10px;
-                border:none;
-                cursor: pointer;
-            }
-        </style>
-    </head>
-    <body>
-        <h1> Student Login </h1>
-        <section id="loginBox">
-            <h3> Login </h3>
-            <label> Username </label> <br>
-            <input type="text" id="username" required> <br> <br>
-            <label> Password </label> <br>
-            <input type="password" id="password" required> <br> <br>
-            <button onclick="login()"> Login </button>
-            <p id="loginMsg"></p>
-        </section>
+<head>
+<title>Student Portal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-        <section id="marksBox" style="display: none;">
-            <h3> Student Marks </h3>
-            <label>Student Name </label> <br>
-            <input type="text" id="name" required> <br> <br>
-            <label> Marks test 1 </label> <br>
-            <input type="number" id="num1"> <br> <br>
-            <label> Marks test 2 </label> <br>
-            <input type="number" id="num2"> <br> <br>
-            <button onclick ="showDetails()"> Submit </button>
-            <p id="demo"></p>
-        </section>
+<body class="font-serif bg-gray-100">
 
-        <script>
-            function login(){
-                try {
-                    let user=document.getElementById("username").value;
-                let pass=document.getElementById("password").value;
+<h1 class="text-center text-blue-600 text-3xl font-bold mb-6 mt-6">
+Student Login
+</h1>
 
-                let correctUser="student";
-                let correctPass="2345";
+<section id="loginBox" class="bg-white w-[400px] mx-auto p-5 rounded shadow">
+<h3 class="text-xl font-semibold mb-3">Login</h3>
 
-                if(user==correctUser && pass==correctPass){
-                    document.getElementById("loginBox").style.display="none";
-                    document.getElementById("marksBox").style.display="block";
-                }else{
-                    alert("username & pass Not entered")
-                } 
-               
-                } catch (error) {
-                    console.log("somthing error happen ")
-                }
-            }
+<label class="font-medium">Username</label><br>
+<input type="text" id="username" class="border border-gray-300 rounded px-2 py-1 w-full"><br><br>
 
-            function showDetails(){
-                let name=document.getElementById("name").value;
-                let num1=Number(document.getElementById("num1").value);
-                let num2=Number(document.getElementById("num2").value);
+<label class="font-medium">Password</label><br>
+<input type="password" id="password" class="border border-gray-300 rounded px-2 py-1 w-full"><br><br>
 
-                let total=num1+num2;
-                let percentage=total/2;
-                let result;
-                
-                if(percentage>=35){
-                    result="Pass";
-                }
-                else{
-                    result="Fail";
-                }
-                document.getElementById("demo").innerHTML= "Hello" + name +  "<br><br>" + " Student Name:" + name +"<br><br>"+"Total Marks:" + total + "<br> <br>" + "Percentage:" + percentage +"<br> <br>" + "Result:" + result ;
-            }
-        </script>
-    </body>
+<button onclick="login()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+Login
+</button>
+
+<p id="loginMsg" class="text-red-500 mt-2"></p>
+</section>
+
+
+<section id="marksBox" class="bg-white w-[400px] mx-auto p-5 rounded shadow mt-6" style="display:none;">
+
+<h3 class="text-xl font-semibold mb-3">Student Marks</h3>
+
+<label class="font-medium">Student Name</label><br>
+<input type="text" id="name" class="border border-gray-300 rounded px-2 py-1 w-full"><br><br>
+
+<label class="font-medium">Marks Test 1</label><br>
+<input type="number" id="num1" class="border border-gray-300 rounded px-2 py-1 w-full"><br><br>
+
+<label class="font-medium">Marks Test 2</label><br>
+<input type="number" id="num2" class="border border-gray-300 rounded px-2 py-1 w-full"><br><br>
+
+<button onclick="showDetails()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+Submit
+</button>
+
+<button onclick="logout()" class="bg-red-500 text-white px-4 py-2 rounded ml-2 hover:bg-red-600">
+Logout
+</button>
+
+<p id="demo" class="mt-4"></p>
+
+</section>
+
+
+<script>
+
+function login(){
+
+try{
+
+let user=document.getElementById("username").value;
+let pass=document.getElementById("password").value;
+
+let correctUser="student";
+let correctPass="2345";
+
+if(user==correctUser && pass==correctPass){
+
+document.getElementById("loginBox").style.display="none";
+document.getElementById("marksBox").style.display="block";
+
+}else{
+
+document.getElementById("loginMsg").innerHTML="Wrong Username or Password";
+
+}
+
+}catch(error){
+
+console.log("Something went wrong");
+
+}
+
+}
+
+
+function showDetails(){
+
+let name=document.getElementById("name").value;
+let num1=Number(document.getElementById("num1").value);
+let num2=Number(document.getElementById("num2").value);
+
+let total=num1+num2;
+let percentage=total/2;
+
+let result;
+
+if(percentage>=35){
+result="Pass";
+}else{
+result="Fail";
+}
+
+document.getElementById("demo").innerHTML=
+"Hello " + name + "<br><br>" +
+"Student Name: " + name + "<br><br>" +
+"Total Marks: " + total + "<br><br>" +
+"Percentage: " + percentage + "<br><br>" +
+"Result: " + result;
+
+}
+
+
+function logout(){
+
+document.getElementById("marksBox").style.display="none";
+document.getElementById("loginBox").style.display="block";
+
+document.getElementById("username").value="";
+document.getElementById("password").value="";
+document.getElementById("name").value="";
+document.getElementById("num1").value="";
+document.getElementById("num2").value="";
+document.getElementById("demo").innerHTML="";
+document.getElementById("loginMsg").innerHTML="";
+
+}
+
+</script>
+
+</body>
 </html>
-
